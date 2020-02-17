@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace KafeKod
+namespace UrunlerForm
 {
     static class Program
     {
@@ -16,7 +16,7 @@ namespace KafeKod
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new AnaForm());
+            Application.Run(new UrunlerForm());
         }
     }
 }

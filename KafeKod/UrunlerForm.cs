@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace KafeKod
 {
-    public partial class AnaForm : Form
+    public partial class UrunlerForm : Form
     {
-        public AnaForm()
+        public UrunlerForm()
         {
             InitializeComponent();
         }

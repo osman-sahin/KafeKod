@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace KafeKod
+namespace GecmisSiprarislerForm
 {
-    public partial class AnaForm : Form
+    public partial class GecmisSiparisForm : Form
     {
-        public AnaForm()
+        public GecmisSiparisForm()
         {
             InitializeComponent();
         }

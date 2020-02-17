@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace KafeKod
+namespace UrunlerForm
 {
-    public partial class AnaForm : Form
+    public partial class UrunlerForm : Form
     {
-        public AnaForm()
+        public UrunlerForm()
         {
             InitializeComponent();
         }

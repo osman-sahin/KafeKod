@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{82693DA9-BB0F-4B9C-87B1-C4A340C9EDA6}</ProjectGuid>
+    <ProjectGuid>{D972D670-9F2F-4834-9590-249CA9E9DC74}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>KafeKod</RootNamespace>
-    <AssemblyName>KafeKod</AssemblyName>
+    <RootNamespace>GecmisSiprarislerForm</RootNamespace>
+    <AssemblyName>GecmisSiprarislerForm</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -52,31 +52,10 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="GecmisSiparislerForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GecmisSiparislerForm.Designer.cs">
-      <DependentUpon>GecmisSiparislerForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SiparisForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="SiparisForm.Designer.cs">
-      <DependentUpon>SiparisForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UrunlerForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UrunlerForm.Designer.cs">
-      <DependentUpon>UrunlerForm.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GecmisSiparislerForm.resx">
-      <DependentUpon>GecmisSiparislerForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -87,12 +66,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="SiparisForm.resx">
-      <DependentUpon>SiparisForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UrunlerForm.resx">
-      <DependentUpon>UrunlerForm.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
