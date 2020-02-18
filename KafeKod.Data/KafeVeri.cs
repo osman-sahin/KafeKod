@@ -6,8 +6,14 @@ using System.Threading.Tasks;
 
 namespace KafeKod.Data
 {
-    class KafeVeri
+     public class KafeVeri
     {
+        public KafeVeri()      // initialized components'de null tanımlamakla ugrasmamak icin burda yaptık.
+        {
+            Urunler = new List<Urun>();
+            AktifSiparisler = new List<Siparis>();
+            GecmisSiparisler = new List<Siparis>();
+        }
         public List<Urun> Urunler { get; set; }
         public List<Siparis> AktifSiparisler { get; set; }
         public List<Siparis> GecmisSiparisler { get; set; }

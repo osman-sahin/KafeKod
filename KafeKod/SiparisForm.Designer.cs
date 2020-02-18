@@ -49,14 +49,19 @@
             // 
             // dgvAdisyon
             // 
+            this.dgvAdisyon.AllowUserToAddRows = false;
+            this.dgvAdisyon.AllowUserToDeleteRows = false;
             this.dgvAdisyon.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvAdisyon.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvAdisyon.BackgroundColor = System.Drawing.Color.Bisque;
             this.dgvAdisyon.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvAdisyon.GridColor = System.Drawing.SystemColors.InactiveBorder;
             this.dgvAdisyon.Location = new System.Drawing.Point(16, 69);
             this.dgvAdisyon.Name = "dgvAdisyon";
+            this.dgvAdisyon.ReadOnly = true;
+            this.dgvAdisyon.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvAdisyon.Size = new System.Drawing.Size(425, 379);
             this.dgvAdisyon.TabIndex = 27;
             // 
@@ -72,6 +77,7 @@
             this.btnAnasayfa.TabIndex = 26;
             this.btnAnasayfa.Text = "ANASAYFAYA DÖN";
             this.btnAnasayfa.UseVisualStyleBackColor = false;
+            this.btnAnasayfa.Click += new System.EventHandler(this.btnAnasayfa_Click);
             // 
             // btnOdemeAl
             // 
@@ -85,6 +91,7 @@
             this.btnOdemeAl.TabIndex = 25;
             this.btnOdemeAl.Text = "ÖDEME AL";
             this.btnOdemeAl.UseVisualStyleBackColor = false;
+            this.btnOdemeAl.Click += new System.EventHandler(this.btnOdemeAl_Click);
             // 
             // btnSiparisIptal
             // 
@@ -98,15 +105,26 @@
             this.btnSiparisIptal.TabIndex = 24;
             this.btnSiparisIptal.Text = "SİPARİŞ İPTAL";
             this.btnSiparisIptal.UseVisualStyleBackColor = false;
+            this.btnSiparisIptal.Click += new System.EventHandler(this.btnSiparisIptal_Click);
             // 
             // nudAdet
             // 
             this.nudAdet.BackColor = System.Drawing.Color.Bisque;
             this.nudAdet.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.nudAdet.Location = new System.Drawing.Point(225, 31);
+            this.nudAdet.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.nudAdet.Name = "nudAdet";
             this.nudAdet.Size = new System.Drawing.Size(112, 29);
             this.nudAdet.TabIndex = 23;
+            this.nudAdet.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // btnMasaTasi
             // 
@@ -130,6 +148,7 @@
             this.btnEkle.TabIndex = 21;
             this.btnEkle.Text = "EKLE";
             this.btnEkle.UseVisualStyleBackColor = false;
+            this.btnEkle.Click += new System.EventHandler(this.btnEkle_Click);
             // 
             // cboMasaNo
             // 
@@ -175,9 +194,9 @@
             this.label.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label.Location = new System.Drawing.Point(482, 286);
             this.label.Name = "label";
-            this.label.Size = new System.Drawing.Size(174, 20);
+            this.label.Size = new System.Drawing.Size(147, 20);
             this.label.TabIndex = 17;
-            this.label.Text = "Ödenecek Tutar (₺): ";
+            this.label.Text = "Ödenecek Tutar: ";
             // 
             // label3
             // 
@@ -213,7 +232,7 @@
             // lblTutar
             // 
             this.lblTutar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblTutar.Location = new System.Drawing.Point(647, 285);
+            this.lblTutar.Location = new System.Drawing.Point(644, 285);
             this.lblTutar.Name = "lblTutar";
             this.lblTutar.Size = new System.Drawing.Size(81, 23);
             this.lblTutar.TabIndex = 28;
@@ -243,7 +262,7 @@
             this.Controls.Add(this.label1);
             this.MinimumSize = new System.Drawing.Size(785, 500);
             this.Name = "SiparisForm";
-            this.Text = "SiparisForm";
+            this.Text = "Masa No";
             ((System.ComponentModel.ISupportInitialize)(this.dgvAdisyon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudAdet)).EndInit();
             this.ResumeLayout(false);
