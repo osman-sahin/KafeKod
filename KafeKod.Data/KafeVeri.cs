@@ -8,6 +8,8 @@ namespace KafeKod.Data
 {
     class KafeVeri
     {
-        prop
+        public List<Urun> Urunler { get; set; }
+        public List<Siparis> AktifSiparisler { get; set; }
+        public List<Siparis> GecmisSiparisler { get; set; }
     }
 }

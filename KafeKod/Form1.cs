@@ -12,9 +12,17 @@ namespace KafeKod
 {
     public partial class AnaForm : Form
     {
+        int masaAdet = 20;
+
         public AnaForm()
         {
             InitializeComponent();
+            MasalariOlustur();
+        }
+
+        private void MasalariOlustur()
+        {
+            ListViewItem lvi;
         }
     }
 }
