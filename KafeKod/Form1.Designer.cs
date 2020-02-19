@@ -44,6 +44,7 @@
             this.lvwMasalar.Location = new System.Drawing.Point(0, 22);
             this.lvwMasalar.Name = "lvwMasalar";
             this.lvwMasalar.Size = new System.Drawing.Size(795, 388);
+            this.lvwMasalar.Sorting = System.Windows.Forms.SortOrder.Descending;
             this.lvwMasalar.TabIndex = 0;
             this.lvwMasalar.UseCompatibleStateImageBehavior = false;
             this.lvwMasalar.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lvwMasalar_MouseDoubleClick);
@@ -65,6 +66,7 @@
             this.tsmiUrunler.Name = "tsmiUrunler";
             this.tsmiUrunler.Size = new System.Drawing.Size(58, 20);
             this.tsmiUrunler.Text = "Ürünler";
+            this.tsmiUrunler.Click += new System.EventHandler(this.tsmiUrunler_Click);
             // 
             // tsmiGecmisSiparisler
             // 
@@ -83,6 +85,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "AnaForm";
             this.Text = "KafeKod v1.0";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AnaForm_FormClosing);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);

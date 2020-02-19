@@ -26,9 +26,9 @@ namespace KafeKod
         {
             //if (dgvSiparisler.SelectedRows.Count > 0)
             //{
-            //    DataGridViewRow satir = dgvSiparisler.SelectedRows[0];
-            //    Siparis siparis = (Siparis)satir.DataBoundItem;
-            //    dgvSiparisDetay.DataSource = siparis.SiparisDetaylar;
+                //DataGridViewRow satir = dgvSiparisler.SelectedRows[0];
+                //Siparis siparis = (Siparis)satir.DataBoundItem;
+                //dgvSiparisDetay.DataSource = siparis.SiparisDetaylar;
             //}
         }
 

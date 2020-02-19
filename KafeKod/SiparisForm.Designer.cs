@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.dgvAdisyon = new System.Windows.Forms.DataGridView();
             this.btnAnasayfa = new System.Windows.Forms.Button();
             this.btnOdemeAl = new System.Windows.Forms.Button();
@@ -43,8 +44,11 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.lblTutar = new System.Windows.Forms.Label();
+            this.cmsAdisyon = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.tsmiAdisyonSil = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAdisyon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudAdet)).BeginInit();
+            this.cmsAdisyon.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgvAdisyon
@@ -64,6 +68,7 @@
             this.dgvAdisyon.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvAdisyon.Size = new System.Drawing.Size(425, 379);
             this.dgvAdisyon.TabIndex = 27;
+            this.dgvAdisyon.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvAdisyon_MouseClick);
             // 
             // btnAnasayfa
             // 
@@ -137,6 +142,7 @@
             this.btnMasaTasi.TabIndex = 22;
             this.btnMasaTasi.Text = "TAŞI";
             this.btnMasaTasi.UseVisualStyleBackColor = false;
+            this.btnMasaTasi.Click += new System.EventHandler(this.btnMasaTasi_Click);
             // 
             // btnEkle
             // 
@@ -171,6 +177,7 @@
             this.cboUrun.Location = new System.Drawing.Point(16, 33);
             this.cboUrun.Name = "cboUrun";
             this.cboUrun.Size = new System.Drawing.Size(203, 28);
+            this.cboUrun.Sorted = true;
             this.cboUrun.TabIndex = 19;
             // 
             // lblMasaNo
@@ -236,8 +243,22 @@
             this.lblTutar.Name = "lblTutar";
             this.lblTutar.Size = new System.Drawing.Size(81, 23);
             this.lblTutar.TabIndex = 28;
-            this.lblTutar.Text = "000,00";
+            this.lblTutar.Text = "000,00₺";
             this.lblTutar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // cmsAdisyon
+            // 
+            this.cmsAdisyon.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmiAdisyonSil});
+            this.cmsAdisyon.Name = "cmsAdisyon";
+            this.cmsAdisyon.Size = new System.Drawing.Size(87, 26);
+            // 
+            // tsmiAdisyonSil
+            // 
+            this.tsmiAdisyonSil.Name = "tsmiAdisyonSil";
+            this.tsmiAdisyonSil.Size = new System.Drawing.Size(86, 22);
+            this.tsmiAdisyonSil.Text = "Sil";
+            this.tsmiAdisyonSil.Click += new System.EventHandler(this.tsmiAdisyonSil_Click);
             // 
             // SiparisForm
             // 
@@ -265,6 +286,7 @@
             this.Text = "Masa No";
             ((System.ComponentModel.ISupportInitialize)(this.dgvAdisyon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudAdet)).EndInit();
+            this.cmsAdisyon.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -287,5 +309,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblTutar;
+        private System.Windows.Forms.ContextMenuStrip cmsAdisyon;
+        private System.Windows.Forms.ToolStripMenuItem tsmiAdisyonSil;
     }
 }
