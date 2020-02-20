@@ -22,6 +22,7 @@ namespace KafeKod
             VerileriOku();
             InitializeComponent();
             MasalariOlustur();
+            // MasaBul(5).Text = "seni buldum ahahaha";
         }
 
         private void VerileriOku()
@@ -98,7 +99,7 @@ namespace KafeKod
                 }
 
                 SiparisForm frmSiparis = new SiparisForm(db, sip);   // SiparisForm'un olusma anı
-                frmSiparis.MasaTasindi += FrmSiparis_MasaTasindi;
+                frmSiparis.MasaTasiniyor += FrmSiparis_MasaTasindi;
                 frmSiparis.ShowDialog();
 
                 if (sip.Durum != SiparisDurum.Aktif)
@@ -113,21 +114,16 @@ namespace KafeKod
 
         private void FrmSiparis_MasaTasindi(object sender, MasaTasimaEventArgs e)
         {
+
             // adım1 eski masayı bosalt
-            ListViewItem lviEskiMasa = null;
-            foreach (ListViewItem item in lvwMasalar.Items)
-            {
-                if (item.Tag is int && (int)item.Tag == e.EskiMasaNo)
-                {
-                    lviEskiMasa = item;
-                    break;
-                }
-            }
+            ListViewItem lviEskiMasa = MasaBul(e.EskiMasaNo);
             lviEskiMasa.Tag = e.EskiMasaNo;
             lviEskiMasa.ImageKey = "bos";
 
-
-            // yeni masaya adisyonu aktar
+            // yeni masaya adisyonu aktar ve dolu hale getir
+            ListViewItem lviYeniMasa = MasaBul(e.YeniMasaNo);
+            lviYeniMasa.Tag = e.TasinanSiparis;
+            lviYeniMasa.ImageKey = "dolu";
 
         }
 
@@ -145,6 +141,22 @@ namespace KafeKod
         {
             string json = JsonConvert.SerializeObject(db);
             File.WriteAllText("veri.json", json);
+        }
+
+        private ListViewItem MasaBul(int masaNo)
+        {
+            foreach (ListViewItem item in lvwMasalar.Items)
+            {
+                if (item.Tag is int && (int)item.Tag == masaNo) 
+                {
+                    return item;
+                }
+                else if (item.Tag is Siparis && ((Siparis)item.Tag).MasaNo == masaNo)
+                {
+                    return item;
+                }
+            }
+            return null;
         }
     }
 }
