@@ -15,7 +15,7 @@ namespace KafeKod
 {
     public partial class AnaForm : Form
     {
-        KafeVeri db;
+        KafeContext db;
         
         public AnaForm()
         {
@@ -30,11 +30,11 @@ namespace KafeKod
             try
             {
                 string json = File.ReadAllText("veri.json");
-                db = JsonConvert.DeserializeObject<KafeVeri>(json);
+                db = JsonConvert.DeserializeObject<KafeContext>(json);
             }
             catch (Exception)
             {
-                db = new KafeVeri();
+                db = new KafeContext();
             }
         }
 
