@@ -46,6 +46,9 @@
             this.lblTutar = new System.Windows.Forms.Label();
             this.cmsAdisyon = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tsmiAdisyonSil = new System.Windows.Forms.ToolStripMenuItem();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAdisyon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudAdet)).BeginInit();
             this.cmsAdisyon.SuspendLayout();
@@ -61,6 +64,10 @@
             this.dgvAdisyon.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvAdisyon.BackgroundColor = System.Drawing.Color.Bisque;
             this.dgvAdisyon.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvAdisyon.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2,
+            this.Column3});
             this.dgvAdisyon.GridColor = System.Drawing.SystemColors.InactiveBorder;
             this.dgvAdisyon.Location = new System.Drawing.Point(16, 69);
             this.dgvAdisyon.Name = "dgvAdisyon";
@@ -260,6 +267,27 @@
             this.tsmiAdisyonSil.Text = "Sil";
             this.tsmiAdisyonSil.Click += new System.EventHandler(this.tsmiAdisyonSil_Click);
             // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "UrunAd";
+            this.Column1.HeaderText = "Ürün Adı";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "Adet";
+            this.Column2.HeaderText = "Adet";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.DataPropertyName = "BirimFiyat";
+            this.Column3.HeaderText = "Birim Fiyatı";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            // 
             // SiparisForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -311,5 +339,8 @@
         private System.Windows.Forms.Label lblTutar;
         private System.Windows.Forms.ContextMenuStrip cmsAdisyon;
         private System.Windows.Forms.ToolStripMenuItem tsmiAdisyonSil;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
     }
 }

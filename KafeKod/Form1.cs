@@ -15,37 +15,13 @@ namespace KafeKod
 {
     public partial class AnaForm : Form
     {
-        KafeContext db;
-        
+        KafeContext db = new KafeContext();
+
         public AnaForm()
         {
-            VerileriOku();
             InitializeComponent();
             MasalariOlustur();
             // MasaBul(5).Text = "seni buldum ahahaha";
-        }
-
-        private void VerileriOku()
-        {
-            try
-            {
-                string json = File.ReadAllText("veri.json");
-                db = JsonConvert.DeserializeObject<KafeContext>(json);
-            }
-            catch (Exception)
-            {
-                db = new KafeContext();
-            }
-        }
-
-        private void OrnekVerileriYukle()
-        {
-            db.Urunler = new List<Urun>
-            {
-                new Urun { UrunAd = "Kola", BirimFiyat = 6.99m },
-                new Urun { UrunAd = "Çay", BirimFiyat = 3.99m }
-            };
-            db.Urunler.Sort();
         }
 
         private void MasalariOlustur()
@@ -58,13 +34,17 @@ namespace KafeKod
             lvwMasalar.LargeImageList = il;
             #endregion
             ListViewItem lvi;
-            for (int i = 1; i <= db.MasaAdet; i++)
+            for (int i = 1; i <= Properties.Settings.Default.MasaAdet; i++)
             {
                 lvi = new ListViewItem("Masa " + i.ToString("00"));
 
                 // i degeri ile kayıtlı bir siparis var mı? masa dolu mu bos mu?
 
-                Siparis sip = db.AktifSiparisler.FirstOrDefault(x => x.MasaNo == i);  // masa no'su i olan varsa siparisi getirir. yoksa default halini getirir.
+                Siparis sip = db.Siparisler
+                    .FirstOrDefault(x => x.MasaNo == i 
+                && x.Durum== SiparisDurum.Aktif);  
+                // masa no'su i olan varsa siparisi getirir. yoksa default halini getirir.
+
                 if (sip == null)
                 {
                 lvi.Tag = i;
@@ -88,10 +68,12 @@ namespace KafeKod
                 {
                     lvi.ImageKey = "dolu";
                     sip = new Siparis();
+                    sip.Durum = SiparisDurum.Aktif;
                     sip.MasaNo = (int)lvi.Tag;              ////
                     sip.AcilisZamani = DateTime.Now;
                     lvi.Tag = sip;                          ////
-                    db.AktifSiparisler.Add(sip);
+                    db.Siparisler.Add(sip);
+                    db.SaveChanges();
                 }
                 else
                 {
@@ -104,8 +86,6 @@ namespace KafeKod
 
                 if (sip.Durum != SiparisDurum.Aktif)
                 {
-                    db.AktifSiparisler.Remove(sip);
-                    db.GecmisSiparisler.Add(sip);
                     lvi.ImageKey = "bos";
                     lvi.Tag = sip.MasaNo;                   ////
                 }
@@ -139,15 +119,14 @@ namespace KafeKod
         }
         private void AnaForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            string json = JsonConvert.SerializeObject(db);
-            File.WriteAllText("veri.json", json);
+            db.Dispose();
         }
 
         private ListViewItem MasaBul(int masaNo)
         {
             foreach (ListViewItem item in lvwMasalar.Items)
             {
-                if (item.Tag is int && (int)item.Tag == masaNo) 
+                if (item.Tag is int && (int)item.Tag == masaNo)
                 {
                     return item;
                 }

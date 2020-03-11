@@ -21,7 +21,6 @@ namespace KafeKod.Data
         public SiparisDurum Durum { get; set; }
         public decimal OdenenTutar { get; set; }
 
-
-        public virtual List<SiparisDetay> SiparisDetaylar { get; set; } //= new List<SiparisDetay>();
+        public virtual List<SiparisDetay> SiparisDetaylar { get; set; } = new List<SiparisDetay>();
     }
 }
