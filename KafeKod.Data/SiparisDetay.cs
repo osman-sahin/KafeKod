@@ -20,7 +20,7 @@ namespace KafeKod.Data
 
         public int Adet { get; set; }
 
-        public int UrunId { get; set; }
+        public int UrunId { get; set; }     // ? yapılabilir. silinen urun siparis detayları icin
         public int SiparisId { get; set; }
 
         public virtual Urun Urun { get; set; }

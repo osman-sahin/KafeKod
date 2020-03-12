@@ -43,7 +43,7 @@ namespace KafeKod
 
         private void UrunleriListele()
         {
-            dgvUrunler.DataSource = db.Urunler.OrderBy(x => x.UrunAd).ToList();
+            dgvUrunler.DataSource = new BindingSource(db.Urunler.OrderBy(x => x.UrunAd).ToList(), null);
         }
 
         private void dgvUrunler_DataError(object sender, DataGridViewDataErrorEventArgs e)
@@ -67,6 +67,31 @@ namespace KafeKod
                     db.SaveChanges();
                 }
             }
+        }
+
+        private void dgvUrunler_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e)
+        {
+            Urun urun = (Urun)e.Row.DataBoundItem;
+
+            if (urun.SiparisDetaylar.Count > 0)
+            {
+                MessageBox.Show("Bu ürün geçmiş siparişlerle ilişkili olduğu için silinemez");
+                e.Cancel = true;
+                return;
+            }
+            db.Urunler.Remove(urun);
+            db.SaveChanges();
+
+        }
+
+        private void dgvUrunler_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            db.SaveChanges();
+        }
+
+        private void UrunlerForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            txtUrunAdi.Focus();
         }
     }
 }

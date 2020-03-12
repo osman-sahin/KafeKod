@@ -36,6 +36,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.clmUrunAd = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmBirimFiyat = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUrunler)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudBirimFiyat)).BeginInit();
             this.SuspendLayout();
@@ -51,13 +52,16 @@
             this.dgvUrunler.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvUrunler.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.clmUrunAd,
-            this.clmBirimFiyat});
+            this.clmBirimFiyat,
+            this.Column1});
             this.dgvUrunler.Location = new System.Drawing.Point(13, 80);
             this.dgvUrunler.Name = "dgvUrunler";
             this.dgvUrunler.Size = new System.Drawing.Size(366, 352);
             this.dgvUrunler.TabIndex = 5;
             this.dgvUrunler.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.dgvUrunler_CellValidating);
+            this.dgvUrunler.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUrunler_CellValueChanged);
             this.dgvUrunler.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dgvUrunler_DataError);
+            this.dgvUrunler.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.dgvUrunler_UserDeletingRow);
             // 
             // btnUrunEkle
             // 
@@ -122,6 +126,14 @@
             this.clmBirimFiyat.HeaderText = "Birim Fiyat";
             this.clmBirimFiyat.Name = "clmBirimFiyat";
             // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "StoktaYok";
+            this.Column1.HeaderText = "Stokta Yok";
+            this.Column1.Name = "Column1";
+            this.Column1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
             // UrunlerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -137,6 +149,7 @@
             this.MinimumSize = new System.Drawing.Size(404, 483);
             this.Name = "UrunlerForm";
             this.Text = "UrunlerForm";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.UrunlerForm_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.dgvUrunler)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudBirimFiyat)).EndInit();
             this.ResumeLayout(false);
@@ -154,5 +167,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmUrunAd;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmBirimFiyat;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Column1;
     }
 }

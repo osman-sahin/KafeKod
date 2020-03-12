@@ -56,6 +56,14 @@
     <Compile Include="Migrations\202003111527300_a1.0.designer.cs">
       <DependentUpon>202003111527300_a1.0.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202003121333011_SiparisDetayCascadeDelOff.cs" />
+    <Compile Include="Migrations\202003121333011_SiparisDetayCascadeDelOff.designer.cs">
+      <DependentUpon>202003121333011_SiparisDetayCascadeDelOff.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003121427105_StokDurumuEklendi.cs" />
+    <Compile Include="Migrations\202003121427105_StokDurumuEklendi.designer.cs">
+      <DependentUpon>202003121427105_StokDurumuEklendi.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Siparis.cs" />
     <Compile Include="SiparisDetay.cs" />
@@ -69,6 +77,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202003111527300_a1.0.resx">
       <DependentUpon>202003111527300_a1.0.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003121333011_SiparisDetayCascadeDelOff.resx">
+      <DependentUpon>202003121333011_SiparisDetayCascadeDelOff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003121427105_StokDurumuEklendi.resx">
+      <DependentUpon>202003121427105_StokDurumuEklendi.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

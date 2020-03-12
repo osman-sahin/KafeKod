@@ -28,10 +28,10 @@ namespace KafeKod
             MasaNolariYukle();
             MasaNoGuncelle();
             TutarGuncelle();
-            cboUrun.DataSource = db.Urunler.ToList();
+            cboUrun.DataSource = db.Urunler.Where(x => !x.StoktaYok).ToList();
             //cboUrun.SelectedItem = null;
             dgvAdisyon.DataSource = siparis.SiparisDetaylar;
-            
+
         }
 
         private void MasaNolariYukle()
@@ -39,7 +39,7 @@ namespace KafeKod
             cboMasaNo.Items.Clear();
             for (int i = 1; i <= Properties.Settings.Default.MasaAdet; i++)
             {
-                if (!db.Siparisler.Any(x => x.MasaNo == i && x.Durum== SiparisDurum.Aktif))
+                if (!db.Siparisler.Any(x => x.MasaNo == i && x.Durum == SiparisDurum.Aktif))
                 {
                     cboMasaNo.Items.Add(i);
                 }
@@ -152,7 +152,7 @@ namespace KafeKod
 
         private void btnMasaTasi_Click(object sender, EventArgs e)
         {
-            if (cboMasaNo.SelectedItem== null)
+            if (cboMasaNo.SelectedItem == null)
             {
                 MessageBox.Show("Lütfen hedef masayı seçiniz.");
                 return;

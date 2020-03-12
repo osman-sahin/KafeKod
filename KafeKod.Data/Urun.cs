@@ -18,7 +18,9 @@ namespace KafeKod.Data
 
         public decimal BirimFiyat{ get; set; }
 
-        public virtual List<SiparisDetay> SiparisDetaylar { get; set; }
+        public bool StoktaYok { get; set; }
+
+        public virtual List<SiparisDetay> SiparisDetaylar { get; set; } = new List<SiparisDetay>();
 
         public override string ToString()
         {
